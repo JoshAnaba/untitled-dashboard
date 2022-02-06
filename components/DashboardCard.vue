@@ -82,11 +82,11 @@ export default {
 }
 
 .upward {
-  color: #12B76A;
+  color: var(--success);
 }
 
 .downward {
-  color: #F04438;
+  color: var(--failure);
 }
 
 .stats {

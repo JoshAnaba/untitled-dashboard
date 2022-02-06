@@ -43,17 +43,77 @@
         </div>
         <div class="rhs">
           <div class="search-ctn">
-            <label for="search">
+            <label for="dashboard-search">
               <span class="material-icons-outlined"> search </span>
             </label>
             <input
-              id="search"
+              id="dashboard-search"
               type="search"
               class="default-input"
               placeholder="Search"
             />
           </div>
         </div>
+      </div>
+      <div class="bottom">
+        <table>
+        <tr class="table-header">
+          <td>
+            <CustomCheckbox />
+          </td>
+          <td>
+            <span>
+              Company
+            </span>
+            <span class="material-icons-outlined">
+              arrow_downward
+            </span>
+          </td>
+          <td class="more-space">
+            License use
+          </td>
+          <td>Status</td>
+          <td class="more-space">
+            Users
+          </td>
+          <td class="more-space">
+            About
+          </td>
+          <td class="icon-btn"></td>
+        </tr>
+        <tbody
+          v-for="(data, index) in companies"
+          :key="index"
+        >
+          <tr>
+            <td>
+              <CustomCheckbox />
+            </td>
+            <td class="more-space">
+              {{ data.company.name }}
+              {{ data.company.site }}
+            </td>
+            <td>
+              <!-- {{ data.license_use }} -->
+              <ProgressBar :overview="5" :current-progress="data.license_use" />
+            </td>
+            <td :class="data.status">
+              <div>{{data.status}}</div>
+            </td>
+            <td>
+              <ImageRow />
+            </td>
+            <td class="icon-btn">
+            <span class="material-icons-outlined">
+              delete
+            </span>
+            <span class="material-icons-outlined">
+              edit
+            </span>
+          </td>
+          </tr>
+        </tbody>
+      </table>
       </div>
     </div>
   </div>
@@ -85,6 +145,99 @@ export default {
           value: '20',
         },
       ],
+      companies: [
+        {
+          company: {
+            name: 'catalog',
+            site: 'catalogapp.io'
+          },
+          license_use: 1,
+          status: 'customer',
+          users: 10,
+          about: {
+            title: 'content curating app',
+            body: 'Brings all your news into one place'
+          }
+        },
+        {
+          company: {
+            name: 'catalog',
+            site: 'catalogapp.io'
+          },
+          license_use: 3,
+          status: 'churned',
+          users: 10,
+          about: {
+            title: 'content curating app',
+            body: 'Brings all your news into one place'
+          }
+        },
+        {
+          company: {
+            name: 'catalog',
+            site: 'catalogapp.io'
+          },
+          license_use: 4,
+          status: 'customer',
+          users: 10,
+          about: {
+            title: 'content curating app',
+            body: 'Brings all your news into one place'
+          }
+        },
+        {
+          company: {
+            name: 'catalog',
+            site: 'catalogapp.io'
+          },
+          license_use: 1,
+          status: 'customer',
+          users: 10,
+          about: {
+            title: 'content curating app',
+            body: 'Brings all your news into one place'
+          }
+        },
+        {
+          company: {
+            name: 'catalog',
+            site: 'catalogapp.io'
+          },
+          license_use: 2,
+          status: 'churned',
+          users: 10,
+          about: {
+            title: 'content curating app',
+            body: 'Brings all your news into one place'
+          }
+        },
+        {
+          company: {
+            name: 'catalog',
+            site: 'catalogapp.io'
+          },
+          license_use: 4,
+          status: 'customer',
+          users: 10,
+          about: {
+            title: 'Sales CRM',
+            body: 'Web-based sales doc management'
+          }
+        },
+        {
+          company: {
+            name: 'sisyphus',
+            site: 'sisyphus.com'
+          },
+          license_use: 3,
+          status: 'customer',
+          users: 9,
+          about: {
+            title: 'Automation and workflow',
+            body: 'Time tracking, invoicing and expenses'
+          }
+        },
+      ]
     }
   },
 }
@@ -96,6 +249,7 @@ export default {
 .dashboard-ctn > .top .default-input,
 .dashboard-ctn > .top .rhs,
 .dashboard-ctn > .middle,
+.dashboard-ctn > .bottom,
 .dashboard-ctn > .bottom .top,
 .dashboard-ctn > .bottom .top .lhs {
   display: flex;
@@ -140,6 +294,7 @@ export default {
 
 .dashboard-ctn > .bottom {
   flex-direction: column;
+  gap: 25px;
 }
 
 .dashboard-ctn > .bottom .top {
@@ -176,6 +331,7 @@ export default {
 
 .dashboard-ctn > .bottom .top .filters {
   border: 1px solid #d0d5dd;
+  box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
 }
 
 .search-ctn,
@@ -206,5 +362,44 @@ export default {
 .search-ctn input {
   font-weight: 200;
   width: 90%;
+}
+
+table {
+  width: 100%;
+}
+
+tr {
+  height: 72px;
+}
+/* tr { */
+  /* display: flex; */
+/* } */
+
+td {
+  /* display: flex;
+  align-items: center; */
+  margin: auto;
+}
+
+.customer div {
+  background: #ECFDF3;
+  color: #027A48;
+  border-radius: 20px;
+  width: 80px;
+  font-size: 13px;
+  padding: 3px 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.churned div {
+  background: #F2F4F7;
+  color: var(--gray-dark);
+  border-radius: 20px;
+  width: 80px;
+  font-size: 13px;
+  padding: 3px 10px;
+  display: flex;
+  justify-content: center;
 }
 </style>
