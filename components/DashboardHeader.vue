@@ -42,7 +42,7 @@
         <label for="search">
           <span class="material-icons-outlined"> search </span>
         </label>
-        <input type="search" class="default-input" placeholder="Search" />
+        <input id="search" type="search" class="default-input" placeholder="Search" />
       </div>
     </div>
   </header>
@@ -80,7 +80,7 @@ nav,
 
 .main-header,
 .sub-header {
-  border-bottom: 1px solid #eaecf0;
+  border-bottom: 1px solid var(--border-one);
   padding: 5px 8vw;
   gap: 20px;
   justify-content: space-between;
@@ -91,7 +91,7 @@ nav,
 }
 
 .logo-ctn .logo-text {
-  color: var(--gray-dark);
+  color: var(--gray-darker);
   font-weight: 500;
   font-size: 18px;
 }
@@ -102,9 +102,10 @@ nav {
 
 .nav-item {
   padding: 8px 12px;
-  color: var(--gray-light);
+  color: var(--gray-dark);
   border-radius: 6px;
-  font-weight: 500;
+  font-weight: 400;
+  height: 40px;
 }
 
 .rhs {
@@ -119,25 +120,32 @@ nav {
 .sub-header .search-ctn {
   border-radius: 8px;
   border: 1px solid #d0d5dd;
-  color: var(--gray-light);
+  color: var(--gray-dark);
   padding: 8px 12px;
 }
 
 .rhs span.material-icons-outlined {
-  color: var(--gray-light);
+  color: var(--gray-dark);
 }
 
 .search-ctn {
   gap: 5px;
   height: 47px;
   min-width: 350px;
+  justify-content: space-between;
 }
 
-.rhs .default-input {
-  height: 42px;
+.search-ctn label {
+  width: 10%;
+  justify-content: center;
 }
 
 .search-ctn input {
   font-weight: 200;
+  width: 90%;
+}
+
+.rhs .default-input {
+  height: 42px;
 }
 </style>
