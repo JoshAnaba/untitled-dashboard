@@ -11,15 +11,21 @@
 
 <script>
 export default {
+  props: {
+    checked: {
+      type: Boolean,
+      default: () => false
+    }
+  },
   data () {
     return {
-      checked: false
+      // checked: false
     }
   },
   methods: {
     toggleCheck () {
-      this.checked = !this.checked
-      this.$emit('toggle-check', this.checked)
+      // this.checked = !this.checked
+      this.$emit('toggle-check')
     }
   }
 }

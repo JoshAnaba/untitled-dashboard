@@ -1,10 +1,10 @@
 <template>
   <div class="image-row-ctn">
     <div v-for="(img, index) in images" :key="index" class="img-ctn">
-      <img :src="img" alt="">
+      <img :src="require(`@/assets/images/pngs/${img}.png`)" alt="">
     </div>
     <div class="img-ctn">
-      +{{users - 5}}
+      <!-- +{{users - 5}} -->
     </div>
   </div>
 </template>
@@ -26,4 +26,10 @@ export default {
   
 }
 </script>
+
+<style scoped>
+.image-row-ctn {
+  display: flex;
+}
+</style>
 

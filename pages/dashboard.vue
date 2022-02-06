@@ -59,9 +59,9 @@
         <table>
         <tr class="table-header">
           <td>
-            <CustomCheckbox />
+            <CustomCheckbox :checked="allChecked" @toggle-check="checkAll()" />
           </td>
-          <td>
+          <td class="flexed-td">
             <span>
               Company
             </span>
@@ -87,11 +87,15 @@
         >
           <tr>
             <td>
-              <CustomCheckbox />
+              <CustomCheckbox :checked="data.checked" @toggle-check="data.checked = !data.checked" />
             </td>
-            <td class="more-space">
-              {{ data.company.name }}
-              {{ data.company.site }}
+            <td class="flexed-td column-td">
+              <span>
+                {{ data.company.name }}
+              </span>
+              <span>
+                {{ data.company.site }}
+              </span>
             </td>
             <td>
               <!-- {{ data.license_use }} -->
@@ -102,6 +106,14 @@
             </td>
             <td>
               <ImageRow />
+            </td>
+            <td class="flexed-td column-td">
+              <span>
+                {{data.about.title}}
+              </span>
+              <span>
+                {{data.about.body}}
+              </span>
             </td>
             <td class="icon-btn">
             <span class="material-icons-outlined">
@@ -125,6 +137,7 @@ export default {
   layout: 'dashboardLayout',
   data() {
     return {
+      allChecked: false,
       cards: [
         {
           name: 'Total customers',
@@ -148,74 +161,80 @@ export default {
       companies: [
         {
           company: {
-            name: 'catalog',
+            name: 'Catalog',
             site: 'catalogapp.io'
           },
+          checked: true,
           license_use: 1,
           status: 'customer',
           users: 10,
           about: {
-            title: 'content curating app',
+            title: 'Content curating app',
             body: 'Brings all your news into one place'
           }
         },
         {
           company: {
-            name: 'catalog',
-            site: 'catalogapp.io'
+            name: 'Circooles',
+            site: 'getcircooles.com'
           },
+          checked: false,
           license_use: 3,
           status: 'churned',
           users: 10,
           about: {
-            title: 'content curating app',
+            title: 'Content curating app',
             body: 'Brings all your news into one place'
           }
         },
         {
           company: {
-            name: 'catalog',
-            site: 'catalogapp.io'
+            name: 'Hourglass',
+            site: 'hourglass.app'
           },
+          checked: false,
           license_use: 4,
           status: 'customer',
           users: 10,
           about: {
-            title: 'content curating app',
-            body: 'Brings all your news into one place'
+            title: 'Productivity app',
+            body: 'Time management and productivity'
           }
         },
         {
           company: {
-            name: 'catalog',
-            site: 'catalogapp.io'
+            name: 'Command+R',
+            site: 'cmdr.ai'
           },
+          checked: true,
           license_use: 1,
           status: 'customer',
           users: 10,
           about: {
-            title: 'content curating app',
-            body: 'Brings all your news into one place'
+            title: 'Data prediction',
+            body: 'AI and machine learning data'
           }
         },
         {
           company: {
-            name: 'catalog',
-            site: 'catalogapp.io'
+            name: 'Layers',
+            site: 'getlayers.io'
           },
+          checked: true,
           license_use: 2,
           status: 'churned',
           users: 10,
           about: {
-            title: 'content curating app',
-            body: 'Brings all your news into one place'
+            title: 'Web app integrations',
+            body: 'Connect web apps seamlessly'
           }
         },
         {
           company: {
-            name: 'catalog',
-            site: 'catalogapp.io'
+            name: 'Quotient',
+            site: 'quotient.co'
           },
+          checked: false,
           license_use: 4,
           status: 'customer',
           users: 10,
@@ -229,6 +248,7 @@ export default {
             name: 'sisyphus',
             site: 'sisyphus.com'
           },
+          checked: true,
           license_use: 3,
           status: 'customer',
           users: 9,
@@ -240,6 +260,22 @@ export default {
       ]
     }
   },
+  methods: {
+    checkAll () {
+    this.allChecked = !this.allChecked
+      if (this.allChecked) {
+        this.companies = this.companies.map(c => {
+          c.checked = true
+          return c
+        })
+      } else {
+        this.companies = this.companies.map(c => {
+          c.checked = false
+          return c
+        })
+      }
+    }
+  }
 }
 </script>
 
@@ -378,7 +414,15 @@ tr {
 td {
   /* display: flex;
   align-items: center; */
-  margin: auto;
+  padding: 20px 0;
+}
+
+.flexed-td {
+  display: flex;
+}
+
+.column-td {
+  flex-direction: column;
 }
 
 .customer div {
