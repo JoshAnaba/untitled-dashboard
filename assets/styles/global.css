@@ -19,3 +19,16 @@
 a {
   text-decoration: none;
 }
+
+button {
+  cursor: pointer;
+}
+
+.transparent-input {
+  border: none;
+  background: transparent;
+}
+
+.transparent-input:focus {
+  outline: none;
+}

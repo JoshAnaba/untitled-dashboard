@@ -1,35 +1,49 @@
 <template>
   <header>
     <div class="main-header">
-      <div class="logo-ctn">
-        <img class="logo-img" src="@/assets/images/svgs/Logomark.svg" alt="">
-        <div class="logo-text">
-          Untitled UI
+      <div class="lhs">
+        <div class="logo-ctn">
+          <img
+            class="logo-img"
+            src="@/assets/images/svgs/Logomark.svg"
+            alt=""
+          />
+          <div class="logo-text">Untitled UI</div>
         </div>
+        <nav>
+          <nuxt-link class="nav-item" to="/"> Home </nuxt-link>
+          <nuxt-link class="nav-item" to="/dashboard"> Dashboard </nuxt-link>
+          <nuxt-link class="nav-item" to="/projects"> Projects </nuxt-link>
+          <nuxt-link class="nav-item" to="/tasks"> Tasks </nuxt-link>
+          <nuxt-link class="nav-item" to="/reports"> Reporting </nuxt-link>
+          <nuxt-link class="nav-item" to="/users"> Users </nuxt-link>
+        </nav>
       </div>
-      <nav>
-        <nuxt-link class="nav-item" to="/">
-          Home
-        </nuxt-link>
-        <nuxt-link class="nav-item" to="/">
-          Dashboard
-        </nuxt-link>
-        <nuxt-link class="nav-item" to="/">
-          Projects
-        </nuxt-link>
-        <nuxt-link class="nav-item" to="/">
-          Tasks
-        </nuxt-link>
-        <nuxt-link class="nav-item" to="/">
-          Reporting
-        </nuxt-link>
-        <nuxt-link class="nav-item" to="/">
-          Users
-        </nuxt-link>
-      </nav>
+      <div class="rhs">
+        <button class="transparent-input">
+          <span class="material-icons-outlined"> bolt </span>
+          <span> Upgrade now </span>
+        </button>
+        <span class="material-icons-outlined"> settings </span>
+        <span class="material-icons-outlined"> notifications </span>
+        <img class="avatar" src="@/assets/images/pngs/avatar.png" alt="" />
+      </div>
     </div>
     <div class="sub-header">
-      yo
+      <nav>
+        <nuxt-link class="nav-item" to="/dashboard"> Overview </nuxt-link>
+        <nuxt-link class="nav-item" to="/dashboard/notifications"> Notifications </nuxt-link>
+        <nuxt-link class="nav-item" to="/dashboard/analytics"> Analytics </nuxt-link>
+        <nuxt-link class="nav-item" to="/dashboard/saved-reports"> Saved reports </nuxt-link>
+        <nuxt-link class="nav-item" to="/dashboard/trade-history"> Trade History </nuxt-link>
+        <nuxt-link class="nav-item" to="/dashboard/user-reports"> User reports </nuxt-link>
+      </nav>
+      <div class="search-ctn">
+        <label for="search">
+          <span class="material-icons-outlined"> search </span>
+        </label>
+        <input type="search" class="transparent-input" placeholder="Search" />
+      </div>
     </div>
   </header>
 </template>
@@ -38,9 +52,18 @@
 .main-header,
 .sub-header,
 .logo-ctn,
-nav {
+nav,
+.lhs,
+.rhs,
+.rhs .transparent-input,
+.search-ctn,
+.search-ctn label {
   display: flex;
   align-items: center;
+}
+
+.lhs {
+  gap: 25px;
 }
 
 .main-header {
@@ -49,14 +72,18 @@ nav {
 
 .sub-header {
   height: 65px;
-  padding: 5px 5vw;
+}
+
+.nuxt-link-exact-active {
+  background: var(--gray-lighter);
 }
 
 .main-header,
 .sub-header {
-  border-bottom: 1px solid #EAECF0;
+  border-bottom: 1px solid #eaecf0;
   padding: 5px 5vw;
   gap: 20px;
+  justify-content: space-between;
 }
 
 .logo-ctn {
@@ -65,7 +92,8 @@ nav {
 
 .logo-ctn .logo-text {
   color: var(--gray-dark);
-  /* font-weight: 900; */
+  font-weight: 500;
+  font-size: 18px;
 }
 
 nav {
@@ -75,7 +103,41 @@ nav {
 .nav-item {
   padding: 8px 12px;
   color: var(--gray-light);
-  background: var(--gray-lighter);
   border-radius: 6px;
+  font-weight: 500;
+}
+
+.rhs {
+  gap: 20px;
+}
+
+.rhs .transparent-input {
+  padding: 8px 12px;
+}
+
+.rhs .transparent-input,
+.sub-header .search-ctn {
+  border-radius: 8px;
+  border: 1px solid #d0d5dd;
+  color: var(--gray-light);
+  padding: 8px 12px;
+}
+
+.rhs span.material-icons-outlined {
+  color: var(--gray-light);
+}
+
+.search-ctn {
+  gap: 5px;
+  height: 47px;
+  min-width: 350px;
+}
+
+.rhs .transparent-input {
+  height: 42px;
+}
+
+.search-ctn input {
+  font-weight: 200;
 }
 </style>
