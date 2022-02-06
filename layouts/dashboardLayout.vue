@@ -7,6 +7,6 @@
 
 <style scoped>
 .main-ctn {
-  padding: 10px 5vw;
+  padding: 50px 8vw;
 }
 </style>

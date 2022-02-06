@@ -1,34 +1,48 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Open+Sans:wght@300;400&display=swap');
 
+:root {
+  --gray-dark: #101828;
+  --gray-light: #344054;
+  --gray-lighter: #F9FAFB;
+  --primary-purple: #7F56D9;
+}
 
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   font-size: 16px;
+  font-weight: 300;
+  color: var(--gray-light);
   font-family: 'Inter', sans-serif;
   /* font-family: 'Open Sans', sans-serif; */
-}
-
-:root {
-  --gray-dark: #101828;
-  --gray-light: #344054;
-  --gray-lighter: #F9FAFB;
 }
 
 a {
   text-decoration: none;
 }
 
+h2 {
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 38px;
+}
+
+h2 {
+  font-size: 38px;
+  font-weight: 500;
+  line-height: 44px;
+}
+
 button {
   cursor: pointer;
 }
 
-.transparent-input {
+.default-input {
   border: none;
   background: transparent;
 }
 
-.transparent-input:focus {
+.default-input:focus {
   outline: none;
 }

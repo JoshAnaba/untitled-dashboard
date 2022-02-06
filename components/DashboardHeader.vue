@@ -20,7 +20,7 @@
         </nav>
       </div>
       <div class="rhs">
-        <button class="transparent-input">
+        <button class="default-input">
           <span class="material-icons-outlined"> bolt </span>
           <span> Upgrade now </span>
         </button>
@@ -42,7 +42,7 @@
         <label for="search">
           <span class="material-icons-outlined"> search </span>
         </label>
-        <input type="search" class="transparent-input" placeholder="Search" />
+        <input type="search" class="default-input" placeholder="Search" />
       </div>
     </div>
   </header>
@@ -55,7 +55,7 @@
 nav,
 .lhs,
 .rhs,
-.rhs .transparent-input,
+.rhs .default-input,
 .search-ctn,
 .search-ctn label {
   display: flex;
@@ -81,7 +81,7 @@ nav,
 .main-header,
 .sub-header {
   border-bottom: 1px solid #eaecf0;
-  padding: 5px 5vw;
+  padding: 5px 8vw;
   gap: 20px;
   justify-content: space-between;
 }
@@ -111,11 +111,11 @@ nav {
   gap: 20px;
 }
 
-.rhs .transparent-input {
+.rhs .default-input {
   padding: 8px 12px;
 }
 
-.rhs .transparent-input,
+.rhs .default-input,
 .sub-header .search-ctn {
   border-radius: 8px;
   border: 1px solid #d0d5dd;
@@ -133,7 +133,7 @@ nav {
   min-width: 350px;
 }
 
-.rhs .transparent-input {
+.rhs .default-input {
   height: 42px;
 }
 
