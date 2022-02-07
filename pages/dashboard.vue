@@ -368,6 +368,7 @@ export default {
 .dashboard-ctn > .middle {
   justify-content: space-between;
   gap: 15px;
+  flex-wrap: wrap;
 }
 
 .dashboard-ctn > .bottom {
