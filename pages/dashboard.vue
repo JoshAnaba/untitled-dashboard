@@ -98,7 +98,6 @@
               </span>
             </td>
             <td>
-              <!-- {{ data.license_use }} -->
               <ProgressBar :overview="5" :current-progress="data.license_use" />
             </td>
             <td :class="data.status">
@@ -419,6 +418,11 @@ td {
 
 .flexed-td {
   display: flex;
+  gap: 5px
+}
+
+.flexed-td span.material-icons-outlined {
+  font-size: 20px;
 }
 
 .column-td {

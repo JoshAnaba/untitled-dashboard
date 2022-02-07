@@ -125,7 +125,7 @@ nav {
 }
 
 .rhs span.material-icons-outlined {
-  color: var(--gray-dark);
+  color: var(--gray-light);
 }
 
 .search-ctn {

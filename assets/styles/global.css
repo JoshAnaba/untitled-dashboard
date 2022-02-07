@@ -3,13 +3,12 @@
 :root {
   --gray-darker: #101828;
   --gray-dark: #344054;
-  --grey-light: #667085;
+  --gray-light: #667085;
   --gray-lighter: #F9FAFB;
   --primary-purple: #7F56D9;
   --border-one: #eaecf0;
   --success: #027A48;
-  --failure: #F04438;
-  
+  --failure: #F04438; 
 }
 
 * {
@@ -20,6 +19,10 @@
   font-weight: 300;
   color: var(--gray-dark);
   font-family: 'Inter', sans-serif;
+}
+
+span.material-icons-outlined {
+  color: var(--gray-light)
 }
 
 a {
