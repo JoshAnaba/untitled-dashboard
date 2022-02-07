@@ -312,6 +312,7 @@ export default {
     }
   },
   methods: {
+    
     checkAll() {
       this.allChecked = !this.allChecked
       if (this.allChecked) {
