@@ -59,7 +59,7 @@
         <table>
         <tr class="table-header">
           <td>
-            <CustomCheckbox :checked="allChecked" @toggle-check="checkAll()" />
+            <CustomCheckbox :checked="allChecked" :header="true" @toggle-check="checkAll()" />
           </td>
           <td class="flexed-td">
             <span>
@@ -355,7 +355,8 @@ export default {
 }
 
 .dashboard-ctn > .bottom .top .lhs button:not(.filters button) {
-  background: #f9f5ff;
+  background: var(--purple-lightest);
+  font-weight: 500;
   box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
   gap: 5px;
 }

@@ -1,8 +1,11 @@
 <template>
   <div>
     <div v-if="checked" class="checkbox checked" @click="toggleCheck()">
-      <div class="material-icons">
+      <div v-if="!header" class="material-icons">
         check
+      </div>
+      <div v-else class="material-icons">
+        remove
       </div>
     </div>
     <div v-else class="checkbox" @click="toggleCheck()" />
@@ -13,6 +16,10 @@
 export default {
   props: {
     checked: {
+      type: Boolean,
+      default: () => false
+    },
+    header: {
       type: Boolean,
       default: () => false
     }
