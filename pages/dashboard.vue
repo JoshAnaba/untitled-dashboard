@@ -7,7 +7,7 @@
       </div>
       <div class="rhs">
         <button class="default-input">
-          <img src="@/assets/images/svgs/import.svg" alt="" />
+          <img src="/images/svgs/import.svg" alt="" />
           <span>Import</span>
         </button>
         <button class="default-input">
@@ -150,8 +150,8 @@
                 </td>
                 <td class="td-2 icon-space">
                   <div class="td-content">
-                    <img src="@/assets/images/svgs/delete.svg" alt="" />
-                    <img src="@/assets/images/svgs/edit.svg" alt="" />
+                    <img src="/images/svgs/delete.svg" alt="" />
+                    <img src="/images/svgs/edit.svg" alt="" />
                   </div>
                 </td>
               </tr>
