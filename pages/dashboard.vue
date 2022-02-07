@@ -154,19 +154,19 @@
               </div>
             </td>
           </tr>
-          <tr class="table-footer">
-            <div class="lhs">
+          <!-- <tr class="table-footer">
+            <td class="td-11">
               <button class="default-input">
                 Previous
               </button>
               <button class="default-input">
                 Next
               </button>
-            </div>
-            <div class="rhs">
+            </td>
+            <td class="td-11">
               Page {{1}} of {{10}}
-            </div>
-          </tr>
+            </td>
+          </tr> -->
         </tbody>
       </table>
       </div>
@@ -465,11 +465,11 @@ tr {
   height: 44px;
 }
 
-.table-footer {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-}
+/* .table-footer { */
+  /* display: flex; */
+  /* width: 100%; */
+  /* justify-content: space-between; */
+/* } */
 
 table tr:last-child {
   border-collapse: separate !important;
@@ -482,9 +482,9 @@ table tbody tr:nth-child(odd) {
 table tbody tr:nth-child(even) {
   background: #fff;
 }
-table tbody:last-child tr {
+/* table tbody:last-child tr {
   border-radius: 0px 0px 20px 20px;
-}
+} */
 
 .icon-space div {
   gap: 20px;
@@ -556,6 +556,10 @@ table tbody:last-child tr {
 }
 .td-5 {
   width: calc(100%/22*5)
+}
+
+.td-11 {
+  width: calc(100%/2)
 }
 
 .customer {
