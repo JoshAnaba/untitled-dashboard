@@ -7,7 +7,8 @@
       </div>
       <div class="rhs">
         <button class="default-input">
-          <span class="material-icons-outlined"> cloud_upload </span>
+          <!-- <span class="material-icons-outlined"> cloud_upload </span> -->
+          <img src="@/assets/images/svgs/import.svg" alt="">
           <span>Import</span>
         </button>
         <button class="default-input">
@@ -95,11 +96,10 @@
           </td>
           <td class="td-2" />
         </tr>
-        <tbody
-          v-for="(data, index) in companies"
-          :key="index"
-        >
-          <tr>
+        <tbody>
+          <tr
+            v-for="(data, index) in companies"
+            :key="index">
             <td class="td-1">
               <div class="td-content">
                 <CustomCheckbox :checked="data.checked" @toggle-check="data.checked = !data.checked" />
@@ -147,16 +147,25 @@
                 </div>
               </div>
             </td>
-            <td class="td-2">
+            <td class="td-2 icon-space">
               <div class="td-content">
-                <span class="material-icons-outlined">
-                  delete
-                </span>
-                <span class="material-icons-outlined">
-                  edit
-                </span>
+                <img src="@/assets/images/svgs/delete.svg" alt="">
+                <img src="@/assets/images/svgs/edit.svg" alt="">
               </div>
             </td>
+          </tr>
+          <tr class="table-footer">
+            <div class="lhs">
+              <button class="default-input">
+                Previous
+              </button>
+              <button class="default-input">
+                Next
+              </button>
+            </div>
+            <div class="rhs">
+              Page {{1}} of {{10}}
+            </div>
           </tr>
         </tbody>
       </table>
@@ -444,9 +453,8 @@ table {
   border-spacing: 0;
 }
 
-tr {
-  /* border-bottom: 1px solid var(--border-one); */
-  padding: 5px 10px;
+td {
+  padding: 0 10px
 }
 
 tr {
@@ -457,28 +465,57 @@ tr {
   height: 44px;
 }
 
-table tbody:last-child {
+.table-footer {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+table tr:last-child {
   border-collapse: separate !important;
   background: transparent;
   border-radius: 0px 0px 20px 20px;
 }
-table tbody:nth-child(even) tr {
+table tbody tr:nth-child(odd) {
   background: var(--gray-lighter);
 }
-table tbody:nth-child(odd) tr {
+table tbody tr:nth-child(even) {
   background: #fff;
 }
 table tbody:last-child tr {
   border-radius: 0px 0px 20px 20px;
 }
 
+.icon-space div {
+  gap: 20px;
+}
+
+.icon-space div span {
+  cursor: pointer;
+}
 
 .td-content,
 .th-content {
   display: flex;
   align-items: center;
-  gap: 3px;
-  height: 100%
+  gap: 8px;
+  height: 100%;
+}
+
+.td-content span:not(.icon-space span) {
+  font-size: 14px;
+}
+
+.td-content img {
+  cursor: pointer;
+}
+
+.td-content div {
+  height: 100%;
+}
+
+.td-content img {
+  height: 100%;
 }
 
 .th-content {
@@ -498,6 +535,11 @@ table tbody:last-child tr {
 .td-column {
   display: flex;
   flex-direction: column;
+}
+
+.td-column span:first-child {
+  color: var(--gray-darker);
+  font-weight: 400;
 }
 
 .td-1 {

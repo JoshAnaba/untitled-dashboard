@@ -21,7 +21,7 @@
       </div>
       <div class="rhs">
         <button class="default-input">
-          <span class="material-icons-outlined"> bolt </span>
+          <img src="@/assets/images/svgs/spark.svg" alt="">
           <span> Upgrade now </span>
         </button>
         <span class="material-icons-outlined"> settings </span>
