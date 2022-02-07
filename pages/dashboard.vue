@@ -160,10 +160,10 @@
           </table>
             <div class="table-footer">
               <div class="lhs">
-                <button class="default-input">Previous</button>
-                <button class="default-input">Next</button>
+                <button class="default-input" @click="currentPage> 1 ? currentPage-- : null">Previous</button>
+                <button class="default-input" @click="currentPage < totalPages ? currentPage++ : null">Next</button>
               </div>
-              <div class="rhs">Page {{ 1 }} of {{ 10 }}</div>
+              <div class="rhs">Page {{ currentPage }} of {{ totalPages }}</div>
             </div>
         </div>
       </div>
@@ -178,6 +178,8 @@ export default {
   data() {
     return {
       allChecked: false,
+      currentPage: 1,
+      totalPages: 10,
       cards: [
         {
           name: 'Total customers',
