@@ -5,7 +5,7 @@
         <div class="logo-ctn">
           <img
             class="logo-img"
-            src="@/assets/images/svgs/Logomark.svg"
+            src="../assets/images/svgs/Logomark.svg"
             alt=""
           />
           <div class="logo-text">Untitled UI</div>
@@ -21,12 +21,12 @@
       </div>
       <div class="rhs">
         <button class="default-input">
-          <img src="@/assets/images/svgs/spark.svg" alt="">
+          <img src="../assets/images/svgs/spark.svg" alt="">
           <span> Upgrade now </span>
         </button>
         <span class="material-icons-outlined"> settings </span>
         <span class="material-icons-outlined"> notifications </span>
-        <img class="avatar" src="@/assets/images/pngs/avatar.png" alt="" />
+        <img class="avatar" src="../assets/images/pngs/avatar.png" alt="" />
       </div>
     </div>
     <div class="sub-header">
