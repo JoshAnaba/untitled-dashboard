@@ -7,7 +7,6 @@
       </div>
       <div class="rhs">
         <button class="default-input">
-          <!-- <span class="material-icons-outlined"> cloud_upload </span> -->
           <img src="@/assets/images/svgs/import.svg" alt="" />
           <span>Import</span>
         </button>
