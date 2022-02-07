@@ -157,13 +157,23 @@
               </tr>
             </tbody>
           </table>
-            <div class="table-footer">
-              <div class="lhs">
-                <button class="default-input" @click="currentPage> 1 ? currentPage-- : null">Previous</button>
-                <button class="default-input" @click="currentPage < totalPages ? currentPage++ : null">Next</button>
-              </div>
-              <div class="rhs">Page {{ currentPage }} of {{ totalPages }}</div>
+          <div class="table-footer">
+            <div class="lhs">
+              <button
+                class="default-input"
+                @click="currentPage > 1 ? currentPage-- : null"
+              >
+                Previous
+              </button>
+              <button
+                class="default-input"
+                @click="currentPage < totalPages ? currentPage++ : null"
+              >
+                Next
+              </button>
             </div>
+            <div class="rhs">Page {{ currentPage }} of {{ totalPages }}</div>
+          </div>
         </div>
       </div>
     </div>
