@@ -571,10 +571,6 @@ table tbody tr:nth-child(even) {
   width: calc(100% / 22 * 5);
 }
 
-.td-11 {
-  width: calc(100% / 2);
-}
-
 .customer {
   background: #ecfdf3;
   color: var(--success);
