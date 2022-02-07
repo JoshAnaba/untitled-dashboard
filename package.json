@@ -1,6 +1,6 @@
 {
   "name": "fidia-test-dashboard",
-  "version": "1.0.0",
+  "version": "16.13.1",
   "private": true,
   "scripts": {
     "dev": "nuxt",
