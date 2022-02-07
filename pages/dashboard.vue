@@ -8,7 +8,7 @@
       <div class="rhs">
         <button class="default-input">
           <!-- <span class="material-icons-outlined"> cloud_upload </span> -->
-          <img src="@/assets/images/svgs/import.svg" alt="">
+          <img src="@/assets/images/svgs/import.svg" alt="" />
           <span>Import</span>
         </button>
         <button class="default-input">
@@ -57,118 +57,115 @@
         </div>
       </div>
       <div class="bottom">
-        <table>
-        <tr class="table-header">
-          <td class="td-1">
-            <div class="th-content">
-              <CustomCheckbox :checked="allChecked" :header="true" @toggle-check="checkAll()" />
-            </div>
-          </td>
-          <td class="td-4">
-            <div class="th-content">
-              <span>
-                Company
-              </span>
-              <span class="material-icons-outlined">
-                arrow_downward
-              </span>
-            </div>
-          </td>
-          <td class="td-3">
-            <div class="th-content">
-              License use
-            </div>
-          </td>
-          <td class="td-3">
-            <div class="th-content">
-              Status
-            </div>
-          </td>
-          <td class="td-4">
-            <div class="th-content">
-              Users
-            </div>
-          </td>
-          <td class="td-5">
-            <div class="th-content">
-              About
-            </div>
-          </td>
-          <td class="td-2" />
-        </tr>
-        <tbody>
-          <tr
-            v-for="(data, index) in companies"
-            :key="index">
-            <td class="td-1">
-              <div class="td-content">
-                <CustomCheckbox :checked="data.checked" @toggle-check="data.checked = !data.checked" />
-              </div>
-            </td>
-            <td class="td-4">
-              <div class="td-content">
-                <div class="lhs">
-                  <img :src="require(`@/assets/images/pngs/${data.company.name.toLowerCase()}.png`)" alt="">
+        <div class="table-container">
+          <table>
+            <tr class="table-header">
+              <td class="td-1">
+                <div class="th-content">
+                  <CustomCheckbox
+                    :checked="allChecked"
+                    :header="true"
+                    @toggle-check="checkAll()"
+                  />
                 </div>
-                <div class="rhs td-column">
-                  <span>
-                    {{ data.company.name }}
-                  </span>
-                  <span>
-                    {{ data.company.site }}
-                  </span>
+              </td>
+              <td class="td-4">
+                <div class="th-content">
+                  <span> Company </span>
+                  <span class="material-icons-outlined"> arrow_downward </span>
                 </div>
+              </td>
+              <td class="td-3">
+                <div class="th-content">License use</div>
+              </td>
+              <td class="td-3">
+                <div class="th-content">Status</div>
+              </td>
+              <td class="td-4">
+                <div class="th-content">Users</div>
+              </td>
+              <td class="td-5">
+                <div class="th-content">About</div>
+              </td>
+              <td class="td-2" />
+            </tr>
+            <tbody>
+              <tr v-for="(data, index) in companies" :key="index">
+                <td class="td-1">
+                  <div class="td-content">
+                    <CustomCheckbox
+                      :checked="data.checked"
+                      @toggle-check="data.checked = !data.checked"
+                    />
+                  </div>
+                </td>
+                <td class="td-4">
+                  <div class="td-content">
+                    <div class="lhs">
+                      <img
+                        :src="
+                          require(`@/assets/images/pngs/${data.company.name.toLowerCase()}.png`)
+                        "
+                        alt=""
+                      />
+                    </div>
+                    <div class="rhs td-column">
+                      <span>
+                        {{ data.company.name }}
+                      </span>
+                      <span>
+                        {{ data.company.site }}
+                      </span>
+                    </div>
+                  </div>
+                </td>
+                <td class="td-3">
+                  <div class="td-content">
+                    <ProgressBar
+                      :overview="5"
+                      :current-progress="data.license_use"
+                    />
+                  </div>
+                </td>
+                <td class="td-3">
+                  <div :class="`td-content ${data.status}`">
+                    {{ data.status }}
+                  </div>
+                </td>
+                <td class="td-4">
+                  <div class="td-content">
+                    <ImageRow :users="data.users" />
+                  </div>
+                </td>
+                <td class="td-5">
+                  <div class="td-content">
+                    <div class="td-column">
+                      <span>
+                        {{ data.about.title }}
+                      </span>
+                      <span>
+                        {{ data.about.body }}
+                      </span>
+                    </div>
+                  </div>
+                </td>
+                <td class="td-2 icon-space">
+                  <div class="td-content">
+                    <img src="@/assets/images/svgs/delete.svg" alt="" />
+                    <img src="@/assets/images/svgs/edit.svg" alt="" />
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+            <div class="table-footer">
+              <div class="lhs">
+                <button class="default-input">Previous</button>
+                <button class="default-input">Next</button>
               </div>
-            </td>
-            <td class="td-3">
-              <div class="td-content">
-                <ProgressBar :overview="5" :current-progress="data.license_use" />
-              </div>
-            </td>
-            <td class="td-3">
-                <div :class="`td-content ${data.status}`">
-                  {{data.status}}
-                </div>
-            </td>
-            <td class="td-4">
-              <div class="td-content">
-                <ImageRow :users="data.users" />
-              </div>
-            </td>
-            <td class="td-5">
-              <div class="td-content">
-                <div class="td-column">
-                  <span>
-                    {{data.about.title}}
-                  </span>
-                  <span>
-                    {{data.about.body}}
-                  </span>
-                </div>
-              </div>
-            </td>
-            <td class="td-2 icon-space">
-              <div class="td-content">
-                <img src="@/assets/images/svgs/delete.svg" alt="">
-                <img src="@/assets/images/svgs/edit.svg" alt="">
-              </div>
-            </td>
-          </tr>
-          <!-- <tr class="table-footer">
-            <td class="td-11">
-              <button class="default-input">
-                Previous
-              </button>
-              <button class="default-input">
-                Next
-              </button>
-            </td>
-            <td class="td-11">
-              Page {{1}} of {{10}}
-            </td>
-          </tr> -->
-        </tbody>
-      </table>
+              <div class="rhs">Page {{ 1 }} of {{ 10 }}</div>
+            </div>
+        </div>
       </div>
     </div>
   </div>
@@ -205,7 +202,7 @@ export default {
         {
           company: {
             name: 'Catalog',
-            site: 'catalogapp.io'
+            site: 'catalogapp.io',
           },
           checked: true,
           license_use: 1,
@@ -213,13 +210,13 @@ export default {
           users: 5,
           about: {
             title: 'Content curating app',
-            body: 'Brings all your news into one place'
-          }
+            body: 'Brings all your news into one place',
+          },
         },
         {
           company: {
             name: 'Circooles',
-            site: 'getcircooles.com'
+            site: 'getcircooles.com',
           },
           checked: false,
           license_use: 3,
@@ -227,13 +224,13 @@ export default {
           users: 4,
           about: {
             title: 'Content curating app',
-            body: 'Brings all your news into one place'
-          }
+            body: 'Brings all your news into one place',
+          },
         },
         {
           company: {
             name: 'Hourglass',
-            site: 'hourglass.app'
+            site: 'hourglass.app',
           },
           checked: false,
           license_use: 4,
@@ -241,13 +238,13 @@ export default {
           users: 5,
           about: {
             title: 'Productivity app',
-            body: 'Time management and productivity'
-          }
+            body: 'Time management and productivity',
+          },
         },
         {
           company: {
             name: 'Command+R',
-            site: 'cmdr.ai'
+            site: 'cmdr.ai',
           },
           checked: true,
           license_use: 1,
@@ -255,13 +252,13 @@ export default {
           users: 10,
           about: {
             title: 'Data prediction',
-            body: 'AI and machine learning data'
-          }
+            body: 'AI and machine learning data',
+          },
         },
         {
           company: {
             name: 'Layers',
-            site: 'getlayers.io'
+            site: 'getlayers.io',
           },
           checked: true,
           license_use: 2,
@@ -269,13 +266,13 @@ export default {
           users: 3,
           about: {
             title: 'Web app integrations',
-            body: 'Connect web apps seamlessly'
-          }
+            body: 'Connect web apps seamlessly',
+          },
         },
         {
           company: {
             name: 'Quotient',
-            site: 'quotient.co'
+            site: 'quotient.co',
           },
           checked: false,
           license_use: 4,
@@ -283,13 +280,13 @@ export default {
           users: 6,
           about: {
             title: 'Sales CRM',
-            body: 'Web-based sales doc management'
-          }
+            body: 'Web-based sales doc management',
+          },
         },
         {
           company: {
             name: 'sisyphus',
-            site: 'sisyphus.com'
+            site: 'sisyphus.com',
           },
           checked: true,
           license_use: 3,
@@ -297,28 +294,28 @@ export default {
           users: 9,
           about: {
             title: 'Automation and workflow',
-            body: 'Time tracking, invoicing and expenses'
-          }
+            body: 'Time tracking, invoicing and expenses',
+          },
         },
-      ]
+      ],
     }
   },
   methods: {
-    checkAll () {
-    this.allChecked = !this.allChecked
+    checkAll() {
+      this.allChecked = !this.allChecked
       if (this.allChecked) {
-        this.companies = this.companies.map(c => {
+        this.companies = this.companies.map((c) => {
           c.checked = true
           return c
         })
       } else {
-        this.companies = this.companies.map(c => {
+        this.companies = this.companies.map((c) => {
           c.checked = false
           return c
         })
       }
-    }
-  }
+    },
+  },
 }
 </script>
 
@@ -444,17 +441,21 @@ export default {
   width: 90%;
 }
 
+.table-container {
+  box-shadow: 0px 4px 8px -2px rgba(16, 24, 40, 0.1),
+    0px 2px 4px -2px rgba(16, 24, 40, 0.06);
+  border: 1px solid var(--border-one);
+  border-radius: 8px;
+}
+
 table {
   width: 100%;
   border-radius: 10px;
-  box-shadow: 0px 4px 8px -2px rgba(16, 24, 40, 0.1), 0px 2px 4px -2px rgba(16, 24, 40, 0.06);
-  border-radius: 8px;
-  border: 1px solid var(--border-one);
   border-spacing: 0;
 }
 
 td {
-  padding: 0 10px
+  padding: 0 10px;
 }
 
 tr {
@@ -465,11 +466,24 @@ tr {
   height: 44px;
 }
 
-/* .table-footer { */
-  /* display: flex; */
-  /* width: 100%; */
-  /* justify-content: space-between; */
-/* } */
+.table-footer {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  height: 72px;
+  padding: 0 10px;
+}
+
+.table-footer .lhs {
+  display: flex;
+  gap: 10px;
+}
+.table-footer .lhs button {
+  border: 1px solid var(--border-one);
+  border-radius: 6px;
+  padding: 7px 10px;
+}
 
 table tr:last-child {
   border-collapse: separate !important;
@@ -482,9 +496,6 @@ table tbody tr:nth-child(odd) {
 table tbody tr:nth-child(even) {
   background: #fff;
 }
-/* table tbody:last-child tr {
-  border-radius: 0px 0px 20px 20px;
-} */
 
 .icon-space div {
   gap: 20px;
@@ -543,27 +554,27 @@ table tbody tr:nth-child(even) {
 }
 
 .td-1 {
-  width: calc(100%/22)
+  width: calc(100% / 22);
 }
 .td-2 {
-  width: calc(100%/22*2)
+  width: calc(100% / 22 * 2);
 }
 .td-3 {
-  width: calc(100%/22*3)
+  width: calc(100% / 22 * 3);
 }
 .td-4 {
-  width: calc(100%/22*4)
+  width: calc(100% / 22 * 4);
 }
 .td-5 {
-  width: calc(100%/22*5)
+  width: calc(100% / 22 * 5);
 }
 
 .td-11 {
-  width: calc(100%/2)
+  width: calc(100% / 2);
 }
 
 .customer {
-  background: #ECFDF3;
+  background: #ecfdf3;
   color: var(--success);
   border-radius: 20px;
   width: 80px;
@@ -574,7 +585,7 @@ table tbody tr:nth-child(even) {
 }
 
 .churned {
-  background: #F2F4F7;
+  background: #f2f4f7;
   color: var(--gray-dark);
   border-radius: 20px;
   width: 80px;
