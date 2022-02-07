@@ -58,70 +58,105 @@
       <div class="bottom">
         <table>
         <tr class="table-header">
-          <td>
-            <CustomCheckbox :checked="allChecked" :header="true" @toggle-check="checkAll()" />
+          <td class="td-1">
+            <div class="th-content">
+              <CustomCheckbox :checked="allChecked" :header="true" @toggle-check="checkAll()" />
+            </div>
           </td>
-          <td class="flexed-td">
-            <span>
-              Company
-            </span>
-            <span class="material-icons-outlined">
-              arrow_downward
-            </span>
+          <td class="td-4">
+            <div class="th-content">
+              <span>
+                Company
+              </span>
+              <span class="material-icons-outlined">
+                arrow_downward
+              </span>
+            </div>
           </td>
-          <td class="more-space">
-            License use
+          <td class="td-3">
+            <div class="th-content">
+              License use
+            </div>
           </td>
-          <td>Status</td>
-          <td class="more-space">
-            Users
+          <td class="td-3">
+            <div class="th-content">
+              Status
+            </div>
           </td>
-          <td class="more-space">
-            About
+          <td class="td-4">
+            <div class="th-content">
+              Users
+            </div>
           </td>
-          <td class="icon-btn"></td>
+          <td class="td-5">
+            <div class="th-content">
+              About
+            </div>
+          </td>
+          <td class="td-2" />
         </tr>
         <tbody
           v-for="(data, index) in companies"
           :key="index"
         >
           <tr>
-            <td>
-              <CustomCheckbox :checked="data.checked" @toggle-check="data.checked = !data.checked" />
+            <td class="td-1">
+              <div class="td-content">
+                <CustomCheckbox :checked="data.checked" @toggle-check="data.checked = !data.checked" />
+              </div>
             </td>
-            <td class="flexed-td column-td">
-              <span>
-                {{ data.company.name }}
-              </span>
-              <span>
-                {{ data.company.site }}
-              </span>
+            <td class="td-4">
+              <div class="td-content">
+                <div class="lhs">
+                  <img :src="require(`@/assets/images/pngs/${data.company.name.toLowerCase()}.png`)" alt="">
+                </div>
+                <div class="rhs td-column">
+                  <span>
+                    {{ data.company.name }}
+                  </span>
+                  <span>
+                    {{ data.company.site }}
+                  </span>
+                </div>
+              </div>
             </td>
-            <td>
-              <ProgressBar :overview="5" :current-progress="data.license_use" />
+            <td class="td-3">
+              <div class="td-content">
+                <ProgressBar :overview="5" :current-progress="data.license_use" />
+              </div>
             </td>
-            <td :class="data.status">
-              <div>{{data.status}}</div>
+            <td class="td-3">
+                <div :class="`td-content ${data.status}`">
+                  {{data.status}}
+                </div>
             </td>
-            <td>
-              <ImageRow :users="data.users" />
+            <td class="td-4">
+              <div class="td-content">
+                <ImageRow :users="data.users" />
+              </div>
             </td>
-            <td class="flexed-td column-td">
-              <span>
-                {{data.about.title}}
-              </span>
-              <span>
-                {{data.about.body}}
-              </span>
+            <td class="td-5">
+              <div class="td-content">
+                <div class="td-column">
+                  <span>
+                    {{data.about.title}}
+                  </span>
+                  <span>
+                    {{data.about.body}}
+                  </span>
+                </div>
+              </div>
             </td>
-            <td class="icon-btn">
-            <span class="material-icons-outlined">
-              delete
-            </span>
-            <span class="material-icons-outlined">
-              edit
-            </span>
-          </td>
+            <td class="td-2">
+              <div class="td-content">
+                <span class="material-icons-outlined">
+                  delete
+                </span>
+                <span class="material-icons-outlined">
+                  edit
+                </span>
+              </div>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -402,37 +437,88 @@ export default {
 
 table {
   width: 100%;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px -2px rgba(16, 24, 40, 0.1), 0px 2px 4px -2px rgba(16, 24, 40, 0.06);
+  border-radius: 8px;
+  border: 1px solid var(--border-one);
+  border-spacing: 0;
+}
+
+tr {
+  /* border-bottom: 1px solid var(--border-one); */
+  padding: 5px 10px;
 }
 
 tr {
   height: 72px;
 }
-/* tr { */
-  /* display: flex; */
-/* } */
 
-td {
-  /* display: flex;
-  align-items: center; */
-  padding: 20px 0;
+.table-header {
+  height: 44px;
 }
 
-.flexed-td {
+table tbody:last-child {
+  border-collapse: separate !important;
+  background: transparent;
+  border-radius: 0px 0px 20px 20px;
+}
+table tbody:nth-child(even) tr {
+  background: var(--gray-lighter);
+}
+table tbody:nth-child(odd) tr {
+  background: #fff;
+}
+table tbody:last-child tr {
+  border-radius: 0px 0px 20px 20px;
+}
+
+
+.td-content,
+.th-content {
   display: flex;
-  gap: 5px
+  align-items: center;
+  gap: 3px;
+  height: 100%
 }
 
-.flexed-td span.material-icons-outlined {
-  font-size: 20px;
+.th-content {
+  font-weight: 400;
+  color: var(--gray-light);
 }
 
-.column-td {
+.th-content span {
+  font-weight: 400;
+  color: var(--gray-light);
+}
+
+.th-content:first-child span.material-icons-outlined {
+  font-size: 18px;
+}
+
+.td-column {
+  display: flex;
   flex-direction: column;
 }
 
-.customer div {
+.td-1 {
+  width: calc(100%/22)
+}
+.td-2 {
+  width: calc(100%/22*2)
+}
+.td-3 {
+  width: calc(100%/22*3)
+}
+.td-4 {
+  width: calc(100%/22*4)
+}
+.td-5 {
+  width: calc(100%/22*5)
+}
+
+.customer {
   background: #ECFDF3;
-  color: #027A48;
+  color: var(--success);
   border-radius: 20px;
   width: 80px;
   font-size: 13px;
@@ -441,7 +527,7 @@ td {
   justify-content: center;
 }
 
-.churned div {
+.churned {
   background: #F2F4F7;
   color: var(--gray-dark);
   border-radius: 20px;

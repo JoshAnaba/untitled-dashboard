@@ -49,11 +49,11 @@ export default {
 }
 
 .remaining-user-ctn {
-  min-width: 35px;
-  max-width: 35px;
-  min-height: 35px;
-  max-height: 35px;
-  border: 1px solid transparent;
+  min-width: 34px;
+  max-width: 34px;
+  min-height: 34px;
+  max-height: 34px;
+  border: 2px solid #fff;
   border-radius: 50%;
   display: flex;
   align-items: center;

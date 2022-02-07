@@ -1,10 +1,10 @@
 <template>
   <div>
     <div v-if="checked" class="checkbox checked" @click="toggleCheck()">
-      <div v-if="!header" class="material-icons">
+      <div v-if="!header" class="material-icons-round">
         check
       </div>
-      <div v-else class="material-icons">
+      <div v-else class="material-icons-round">
         remove
       </div>
     </div>
@@ -40,12 +40,12 @@ export default {
 
 <style scoped>
 .checkbox {
-  min-width: 25px;
-  max-width: 25px;
-  height: 25px;
-  max-height: 25px;
+  min-width: 20px;
+  max-width: 20px;
+  height: 20px;
+  max-height: 20px;
   border: 1px solid #D0D5DD;
-  border-radius: 5px;
+  border-radius: 6px;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -53,9 +53,11 @@ export default {
   user-select: none;
 }
 
-.checkbox .material-icons {
+.checkbox .material-icons-round,
+.checkbox .material-icons,
+.checkbox .material-icons-outlined {
   color: var(--primary-purple);
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 700;
   user-select: none;
 }

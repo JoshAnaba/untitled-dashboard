@@ -69,7 +69,7 @@ export default {
   display: flex;
   width: 100%;
   height: 8px;
-  background: #F9F5FF;
+  background: var(--purple-lightest);
   border-radius: 5px;
 }
 
