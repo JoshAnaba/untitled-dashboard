@@ -105,7 +105,7 @@
               <div>{{data.status}}</div>
             </td>
             <td>
-              <ImageRow />
+              <ImageRow :users="data.users" />
             </td>
             <td class="flexed-td column-td">
               <span>
@@ -167,7 +167,7 @@ export default {
           checked: true,
           license_use: 1,
           status: 'customer',
-          users: 10,
+          users: 5,
           about: {
             title: 'Content curating app',
             body: 'Brings all your news into one place'
@@ -181,7 +181,7 @@ export default {
           checked: false,
           license_use: 3,
           status: 'churned',
-          users: 10,
+          users: 4,
           about: {
             title: 'Content curating app',
             body: 'Brings all your news into one place'
@@ -195,7 +195,7 @@ export default {
           checked: false,
           license_use: 4,
           status: 'customer',
-          users: 10,
+          users: 5,
           about: {
             title: 'Productivity app',
             body: 'Time management and productivity'
@@ -223,7 +223,7 @@ export default {
           checked: true,
           license_use: 2,
           status: 'churned',
-          users: 10,
+          users: 3,
           about: {
             title: 'Web app integrations',
             body: 'Connect web apps seamlessly'
@@ -237,7 +237,7 @@ export default {
           checked: false,
           license_use: 4,
           status: 'customer',
-          users: 10,
+          users: 6,
           about: {
             title: 'Sales CRM',
             body: 'Web-based sales doc management'

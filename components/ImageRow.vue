@@ -1,10 +1,10 @@
 <template>
   <div class="image-row-ctn">
-    <div v-for="(img, index) in images" :key="index" class="img-ctn">
+    <div v-for="(img, index) in images" v-show="index <= users" :key="index" class="img-ctn">
       <img :src="require(`@/assets/images/pngs/${img}.png`)" alt="">
-    </div>
-    <div class="img-ctn">
-      <!-- +{{users - 5}} -->
+    <!-- <div class="img-ctn">
+      +{{users > index ? users - 5 : ''}}
+    </div> -->
     </div>
   </div>
 </template>

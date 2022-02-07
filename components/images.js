@@ -3,12 +3,12 @@ const images = [
   'avatar-two',
   'avatar-three',
   'avatar-four',
-  // 'avatar-five',
-  // 'avatar-six',
-  // 'avatar-seven',
-  // 'avatar-eight',
-  // 'avatar-nine',
-  // 'avatar-ten'
+  'avatar-five',
+  'avatar-six',
+  'avatar-seven',
+  'avatar-eight',
+  'avatar-nine',
+  'avatar-ten'
 ]
 
 export default images

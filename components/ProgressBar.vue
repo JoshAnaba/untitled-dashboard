@@ -68,14 +68,14 @@ export default {
 .progress__bar {
   display: flex;
   width: 100%;
-  height: 6px;
-  background: transparent;
-  border-radius: 0px;
+  height: 8px;
+  background: #F9F5FF;
+  border-radius: 5px;
 }
 
 .bar-container {
   max-width: 100%;
-  height: 10px;
+  height: 100%;
   position: relative;
   display: flex;
   flex-direction: column;
