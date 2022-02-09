@@ -312,7 +312,7 @@ export default {
     }
   },
   methods: {
-    
+
     checkAll() {
       this.allChecked = !this.allChecked
       if (this.allChecked) {
@@ -559,6 +559,7 @@ table tbody tr:nth-child(even) {
 .td-column {
   display: flex;
   flex-direction: column;
+  gap: 5px;
 }
 
 .td-column span:first-child {
