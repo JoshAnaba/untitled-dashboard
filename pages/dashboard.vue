@@ -653,5 +653,21 @@ table tbody tr:nth-child(even) {
   .search-ctn {
     min-width: 100%;
   }
+
+  .td-1 {
+    width: calc(100% / 8);
+  }
+  .td-2 {
+    width: calc(100% / 8 * 2);
+  }
+  .td-3 {
+    width: calc(100% / 8 * 3);
+  }
+  .td-4 {
+    width: calc(100% / 8 * 4);
+  }
+  .td-5 {
+    width: calc(100% / 8 * 5);
+  }
 }
 </style>
