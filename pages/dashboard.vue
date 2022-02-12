@@ -26,14 +26,16 @@
     <div class="bottom">
       <div class="top">
         <div class="lhs">
-          <button class="default-input">
-            <span>All time</span>
-            <span class="material-icons-outlined"> close </span>
-          </button>
-          <button class="default-input">
-            <span>US, AU, +4</span>
-            <span class="material-icons-outlined"> close </span>
-          </button>
+          <div class="filter-items">
+            <button class="default-input">
+              <span>All time</span>
+              <span class="material-icons-outlined"> close </span>
+            </button>
+            <button class="default-input">
+              <span>US, AU, +4</span>
+              <span class="material-icons-outlined"> close </span>
+            </button>
+          </div>
           <div class="filters">
             <button class="default-input">
               <span class="material-icons-outlined"> filter_list </span>
@@ -77,16 +79,16 @@
               <td class="td-3">
                 <div class="th-content">License use</div>
               </td>
-              <td class="td-3">
+              <td class="td-3 hide-on-mobile-800">
                 <div class="th-content">Status</div>
               </td>
-              <td class="td-4">
+              <td class="td-4 hide-on-mobile-800">
                 <div class="th-content">Users</div>
               </td>
-              <td class="td-5">
+              <td class="td-5 hide-on-mobile-800">
                 <div class="th-content">About</div>
               </td>
-              <td class="td-2" />
+              <td class="td-2 hide-on-mobile-800" />
             </tr>
             <tbody>
               <tr v-for="(data, index) in companies" :key="index">
@@ -126,17 +128,17 @@
                     />
                   </div>
                 </td>
-                <td class="td-3">
+                <td class="td-3 hide-on-mobile-800">
                   <div :class="`td-content ${data.status}`">
                     {{ data.status }}
                   </div>
                 </td>
-                <td class="td-4">
+                <td class="td-4 hide-on-mobile-800">
                   <div class="td-content">
                     <ImageRow :users="data.users" />
                   </div>
                 </td>
-                <td class="td-5">
+                <td class="td-5 hide-on-mobile-800">
                   <div class="td-content">
                     <div class="td-column">
                       <span>
@@ -148,7 +150,7 @@
                     </div>
                   </div>
                 </td>
-                <td class="td-2 icon-space">
+                <td class="td-2 icon-space hide-on-mobile-800">
                   <div class="td-content">
                     <img src="/images/svgs/delete.svg" alt="" />
                     <img src="/images/svgs/edit.svg" alt="" />
@@ -312,7 +314,6 @@ export default {
     }
   },
   methods: {
-
     checkAll() {
       this.allChecked = !this.allChecked
       if (this.allChecked) {
@@ -349,6 +350,8 @@ export default {
 }
 .dashboard-ctn > .top {
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .dashboard-ctn > .top .default-input {
@@ -388,13 +391,26 @@ export default {
 
 .dashboard-ctn > .bottom .top {
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.dashboard-ctn > .bottom .filter-items {
+  display: flex;
+  gap: 10px;
 }
 
 .dashboard-ctn > .bottom .top .lhs {
   gap: 10px;
+  flex-wrap: wrap-reverse;
 }
 
-.dashboard-ctn > .bottom .top .lhs > * {
+.dashboard-ctn > .top .lhs p {
+  color: var(--gray-light);
+}
+
+.dashboard-ctn > .bottom .top .lhs > *,
+.dashboard-ctn > .bottom .top .lhs > .filter-items > * {
   display: flex;
   align-items: center;
   border-radius: 6px;
@@ -435,9 +451,6 @@ export default {
   border: 1px solid #d0d5dd;
   color: var(--gray-dark);
   padding: 8px 12px;
-}
-
-.search-ctn {
   gap: 5px;
   height: 47px;
   min-width: 350px;
@@ -492,6 +505,7 @@ tr {
   display: flex;
   gap: 10px;
 }
+
 .table-footer .lhs button {
   border: 1px solid var(--border-one);
   border-radius: 6px;
@@ -603,5 +617,40 @@ table tbody tr:nth-child(even) {
   padding: 3px 10px;
   display: flex;
   justify-content: center;
+}
+
+@media screen and (max-width: 800px) {
+  .hide-on-mobile-800 {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .dashboard-ctn > .bottom .top {
+    flex-direction: column-reverse;
+  }
+
+  .dashboard-ctn > .bottom .top > *  {
+    width: 100%;
+  }
+
+  .dashboard-ctn > .bottom .top .lhs .filters  {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .dashboard-ctn > .bottom .top .lhs > .filter-items > * {
+    border-radius: 10px;
+    padding: 3px 5px;
+    height: 25px;
+  }
+
+  .dashboard-ctn > .bottom .top .lhs > .filter-items span {
+    font-size: 14px;
+  }
+
+  .search-ctn {
+    min-width: 100%;
+  }
 }
 </style>

@@ -10,6 +10,7 @@
   --success: #027A48;
   --failure: #F04438; 
   --purple-lightest: #f9f5ff;
+  ---large-font: 15px;
 }
 
 * {
@@ -62,4 +63,14 @@ button {
 
 .default-input:focus {
   outline: none;
+}
+
+@media screen and (max-width: 800px) {
+  h1 {
+    font-size: 30px;
+  }
+  
+  h2 {
+    font-size: 24px;
+  }
 }

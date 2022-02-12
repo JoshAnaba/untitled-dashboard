@@ -116,4 +116,12 @@ export default {
   display: flex;
   align-items: flex-end;
 }
+
+@media screen and (max-width: 500px) {
+  .card-ctn {
+    width: 100%;
+    min-height: 150px;
+    padding: 20px 16px;
+  }
+}
 </style>

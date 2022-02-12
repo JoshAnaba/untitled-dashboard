@@ -64,5 +64,6 @@ export default {
 
 .checkbox.checked {
   border: 1px solid var(--primary-purple);
+  background: var(--purple-lightest);
 }
 </style>

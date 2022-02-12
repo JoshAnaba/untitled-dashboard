@@ -28,6 +28,9 @@
         <span class="material-icons-outlined"> notifications </span>
         <img class="avatar" src="/images/pngs/avatar.png" alt="" />
       </div>
+      <div class="hamburger">
+        <img src="@/assets/images/svgs/hamburger.svg" alt="">
+      </div>
     </div>
     <div class="sub-header">
       <nav>
@@ -147,5 +150,27 @@ nav {
 
 .rhs .default-input {
   height: 42px;
+}
+
+.hamburger {
+  cursor: pointer;
+}
+
+@media screen and (min-width: 1000px) {
+  .hamburger {
+    display: none;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .main-header {
+    padding: 3px 4vw;
+    height: 64px;
+  }
+
+  .sub-header,
+  nav,
+  .rhs {
+    display: none;
+  }
 }
 </style>
