@@ -626,11 +626,11 @@ table tbody tr:nth-child(even) {
   }
 
   .dashboard-ctn > .bottom .top {
-    width: 50%;
+    width: 80%;
   }
 
   .dashboard-ctn > .bottom .top > * {
-    min-width: 100%;
+    min-width: 80%;
   }
 
   .dashboard-ctn > .bottom .top .lhs .filters {
@@ -642,9 +642,10 @@ table tbody tr:nth-child(even) {
 @media screen and (max-width: 500px) {
   .dashboard-ctn > .bottom .top {
     flex-direction: column-reverse;
+    width: 100%;
   }
 
-  .dashboard-ctn > .bottom .top > *  {
+  .dashboard-ctn > .bottom .top > * {
     width: 100%;
   }
 
