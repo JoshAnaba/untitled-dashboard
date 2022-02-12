@@ -472,6 +472,7 @@ export default {
     0px 2px 4px -2px rgba(16, 24, 40, 0.06);
   border: 1px solid var(--border-one);
   border-radius: 8px;
+  overflow-x: auto;
 }
 
 table {
