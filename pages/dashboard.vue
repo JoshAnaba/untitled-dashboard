@@ -624,6 +624,19 @@ table tbody tr:nth-child(even) {
   .hide-on-mobile-800 {
     display: none;
   }
+
+  .dashboard-ctn > .bottom .top {
+    width: 50%;
+  }
+
+  .dashboard-ctn > .bottom .top > * {
+    min-width: 100%;
+  }
+
+  .dashboard-ctn > .bottom .top .lhs .filters {
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 @media screen and (max-width: 500px) {
@@ -633,11 +646,6 @@ table tbody tr:nth-child(even) {
 
   .dashboard-ctn > .bottom .top > *  {
     width: 100%;
-  }
-
-  .dashboard-ctn > .bottom .top .lhs .filters  {
-    width: 100%;
-    justify-content: center;
   }
 
   .dashboard-ctn > .bottom .top .lhs > .filter-items > * {
