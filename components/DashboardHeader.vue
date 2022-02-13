@@ -3,11 +3,7 @@
     <div class="main-header">
       <div class="lhs">
         <div class="logo-ctn">
-          <img
-            class="logo-img"
-            src="/images/svgs/Logomark.svg"
-            alt=""
-          />
+          <img class="logo-img" src="/images/svgs/Logomark.svg" alt="" />
           <div class="logo-text">Untitled UI</div>
         </div>
         <nav>
@@ -21,37 +17,96 @@
       </div>
       <div class="rhs">
         <button class="default-input">
-          <img src="/images/svgs/spark.svg" alt="">
+          <img src="/images/svgs/spark.svg" alt="" />
           <span> Upgrade now </span>
         </button>
         <span class="material-icons-outlined"> settings </span>
         <span class="material-icons-outlined"> notifications </span>
         <img class="avatar" src="/images/pngs/avatar.png" alt="" />
       </div>
-      <div class="hamburger">
-        <img src="@/assets/images/svgs/hamburger.svg" alt="">
-      </div>
+      <MenuBtn @toggle-mobile-menu="toggleMobileMenu" />
     </div>
     <div class="sub-header">
       <nav>
         <nuxt-link class="nav-item" to="/dashboard"> Overview </nuxt-link>
-        <nuxt-link class="nav-item" to="/dashboard/notifications"> Notifications </nuxt-link>
-        <nuxt-link class="nav-item" to="/dashboard/analytics"> Analytics </nuxt-link>
-        <nuxt-link class="nav-item" to="/dashboard/saved-reports"> Saved reports </nuxt-link>
-        <nuxt-link class="nav-item" to="/dashboard/trade-history"> Trade History </nuxt-link>
-        <nuxt-link class="nav-item" to="/dashboard/user-reports"> User reports </nuxt-link>
+        <nuxt-link class="nav-item" to="/dashboard/notifications">
+          Notifications
+        </nuxt-link>
+        <nuxt-link class="nav-item" to="/dashboard/analytics">
+          Analytics
+        </nuxt-link>
+        <nuxt-link class="nav-item" to="/dashboard/saved-reports">
+          Saved reports
+        </nuxt-link>
+        <nuxt-link class="nav-item" to="/dashboard/trade-history">
+          Trade History
+        </nuxt-link>
+        <nuxt-link class="nav-item" to="/dashboard/user-reports">
+          User reports
+        </nuxt-link>
       </nav>
       <div class="search-ctn">
         <label for="search">
           <span class="material-icons-outlined"> search </span>
         </label>
-        <input id="search" type="search" class="default-input" placeholder="Search" />
+        <input
+          id="search"
+          type="search"
+          class="default-input"
+          placeholder="Search"
+        />
+      </div>
+    </div>
+    <div v-show="showMobileMenu" ref="nav" class="nav-mobile">
+      <div class="inner">
+        <div class="nav-actions-mobile">
+          <nuxt-link class="nav-item" to="/">Home </nuxt-link>
+          <nuxt-link class="nav-item" to="/dashboard"> Dashboard </nuxt-link>
+          <nuxt-link class="nav-item" to="/projects"> Projects </nuxt-link>
+          <nuxt-link class="nav-item" to="/tasks"> Tasks </nuxt-link>
+          <nuxt-link class="nav-item" to="/reports"> Reporting </nuxt-link>
+          <nuxt-link class="nav-item" to="/users"> Users </nuxt-link>
+        </div>
       </div>
     </div>
   </header>
 </template>
 
+<script>
+export default {
+  name: 'DashboardHeader',
+  data() {
+    return {
+      showMobileMenu: false,
+    }
+  },
+  watch: {
+    $route: {
+      handler() {
+        this.showMobileMenu = false
+      },
+    },
+    showMobileMenu: {
+      handler(val) {
+        if (val) {
+          this.$refs.nav.classList.add('come-down')
+        }
+      },
+    },
+  },
+  methods: {
+    toggleMobileMenu(boo) {
+      this.showMobileMenu = boo
+    },
+  },
+}
+</script>
+
 <style scoped>
+header {
+  position: relative;
+}
+
 .main-header,
 .sub-header,
 .logo-ctn,
@@ -99,7 +154,8 @@ nav,
   font-size: 18px;
 }
 
-nav {
+.main-header nav,
+.sub-heder nav {
   gap: 5px;
 }
 
@@ -152,19 +208,42 @@ nav {
   height: 42px;
 }
 
-.hamburger {
-  cursor: pointer;
+.nav-mobile {
+  display: none;
+  border-radius: 0 0 5px 5px;
+  width: 90vw;
+  margin: 0 5vw;
+  background: #fff;
+  box-shadow: -1px 10px 10px 10px rgba(18, 94, 164, 0.08);
+  z-index: 5;
+  padding: 0 20px 10px 20px;
+  position: absolute;
 }
 
-@media screen and (min-width: 1000px) {
-  .hamburger {
-    display: none;
-  }
+.nav-actions-mobile {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
+
+.nav-actions-mobile .nav-item {
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.nav-mobile .inner {
+  z-index: 5;
+  padding: 20px 0;
+}
+
 @media screen and (max-width: 1000px) {
   .main-header {
     padding: 3px 4vw;
     height: 64px;
+  }
+  .nav-mobile {
+    display: block;
   }
 
   .sub-header,
