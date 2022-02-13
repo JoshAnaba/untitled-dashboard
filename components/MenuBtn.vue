@@ -1,5 +1,5 @@
 <template>
-  <div class="menu-btn" @click="toggleMobileMenu()">
+  <div class="menu-btn slide-in-from-right" @click="toggleMobileMenu()">
     <div class="menu-btn__hamburger" />
   </div>
 </template>

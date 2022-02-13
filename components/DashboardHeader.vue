@@ -1,7 +1,7 @@
 <template>
   <header>
     <div class="main-header">
-      <div class="lhs">
+      <div class="lhs slide-in-from-left">
         <div class="logo-ctn">
           <img class="logo-img" src="/images/svgs/Logomark.svg" alt="" />
           <div class="logo-text">Untitled UI</div>
@@ -15,7 +15,7 @@
           <nuxt-link class="nav-item" to="/users"> Users </nuxt-link>
         </nav>
       </div>
-      <div class="rhs">
+      <div class="rhs slide-in-from-right">
         <button class="default-input">
           <img src="/images/svgs/spark.svg" alt="" />
           <span> Upgrade now </span>
@@ -27,7 +27,7 @@
       <MenuBtn @toggle-mobile-menu="toggleMobileMenu" />
     </div>
     <div class="sub-header">
-      <nav>
+      <nav class="slide-in-from-left">
         <nuxt-link class="nav-item" to="/dashboard"> Overview </nuxt-link>
         <nuxt-link class="nav-item" to="/dashboard/notifications">
           Notifications
@@ -45,7 +45,7 @@
           User reports
         </nuxt-link>
       </nav>
-      <div class="search-ctn">
+      <div class="search-ctn slide-in-from-right">
         <label for="search">
           <span class="material-icons-outlined"> search </span>
         </label>

@@ -58,7 +58,7 @@
         </div>
       </div>
       <div class="bottom">
-        <div class="table-container">
+        <div class="table-container come-down">
           <table>
             <tr class="table-header">
               <td class="td-1">
@@ -621,6 +621,11 @@ table tbody tr:nth-child(even) {
 }
 
 @media screen and (max-width: 800px) {
+.dashboard-ctn > .top {
+  animation: slide-in-from-left .8s forwards;
+  -webkit-animation: slide-in-from-left .6s forwards;
+}
+
   .hide-on-mobile-800 {
     display: none;
   }
