@@ -22,7 +22,7 @@
         </button>
         <span class="material-icons-outlined"> settings </span>
         <span class="material-icons-outlined"> notifications </span>
-        <img class="avatar" src="/images/pngs/avatar.png" alt="" />
+        <img class="avatar" src="/images/pngs/avatar-eight.png" alt="" />
       </div>
       <MenuBtn @toggle-mobile-menu="toggleMobileMenu" />
     </div>
