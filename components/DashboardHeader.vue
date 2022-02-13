@@ -2,7 +2,7 @@
   <header>
     <div class="main-header">
       <div class="lhs slide-in-from-left">
-        <div class="logo-ctn">
+        <div class="logo-ctn" @click="$router.push('/')">
           <img class="logo-img" src="/images/svgs/Logomark.svg" alt="" />
           <div class="logo-text">Untitled UI</div>
         </div>
@@ -29,19 +29,19 @@
     <div class="sub-header">
       <nav class="slide-in-from-left">
         <nuxt-link class="nav-item" to="/dashboard"> Overview </nuxt-link>
-        <nuxt-link class="nav-item" to="/dashboard/notifications">
+        <nuxt-link class="nav-item" to="/">
           Notifications
         </nuxt-link>
-        <nuxt-link class="nav-item" to="/dashboard/analytics">
+        <nuxt-link class="nav-item" to="/">
           Analytics
         </nuxt-link>
-        <nuxt-link class="nav-item" to="/dashboard/saved-reports">
+        <nuxt-link class="nav-item" to="/">
           Saved reports
         </nuxt-link>
-        <nuxt-link class="nav-item" to="/dashboard/trade-history">
+        <nuxt-link class="nav-item" to="/">
           Trade History
         </nuxt-link>
-        <nuxt-link class="nav-item" to="/dashboard/user-reports">
+        <nuxt-link class="nav-item" to="/">
           User reports
         </nuxt-link>
       </nav>
@@ -146,6 +146,7 @@ nav,
 
 .logo-ctn {
   gap: 5px;
+  cursor: pointer;
 }
 
 .logo-ctn .logo-text {

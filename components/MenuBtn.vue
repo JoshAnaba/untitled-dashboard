@@ -52,8 +52,8 @@ export default {
 
 .menu-btn__hamburger {
   width: 28px;
-  height: 4px;
-  background: var(--gray-dark);
+  height: 3px;
+  background: var(--gray-light);
   transition: all 0.5s ease-in-out;
 }
 
@@ -61,7 +61,7 @@ export default {
 .menu-btn__hamburger::after {
   content: '';
   position: absolute;
-  background: var(--gray-dark);
+  background: var(--gray-light);
   width: 32px;
   height: 3px;
   transition: all 0.5s ease-in-out;
