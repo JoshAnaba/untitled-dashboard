@@ -1,8 +1,9 @@
 <template>
   <div class="dashboard-ctn">
     <div class="top">
+      {{ secret_key }}
       <div class="lhs">
-        <h2>Welcome back, Olivia</h2>
+        <h1 data-aos-once="true" data-aos="big-anim-2">Welcome back, Olivia</h1>
         <p>Track, manage and forecast your customers and orders.</p>
       </div>
       <div class="rhs">
@@ -329,6 +330,10 @@ export default {
       }
     },
   },
+  created () {
+    console.log(process.env.secret_key)
+    this.secret_key = process.env.secret_key
+  }
 }
 </script>
 

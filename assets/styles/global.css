@@ -136,3 +136,43 @@ button {
   }
 }
 
+
+.big-anim-1 {
+  display: flex;
+  animation: big-anim 0.5s ease-in-out forwards;
+  -webkit-animation: big-anim 0.5s ease-in-out forwards;
+  overflow: hidden;
+  pointer-events: auto !important;
+}
+.big-anim-2 {
+  display: flex;
+  animation: big-anim 1s ease-in-out forwards;
+  -webkit-animation: big-anim 1s ease-in-out forwards;
+  pointer-events: auto !important;
+}
+.big-anim-3 {
+  display: flex;
+  animation: big-anim 1.5s ease-in-out forwards;
+  -webkit-animation: big-anim 1.5s ease-in-out forwards;
+  pointer-events: auto !important;
+}
+.big-anim-4 {
+  display: flex;
+  animation: big-anim 2.0s ease-in-out forwards;
+  -webkit-animation: big-anim 2.0s ease-in-out forwards;
+  pointer-events: auto !important;
+}
+
+@keyframes big-anim {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    transform: translate3d(0, 40%, 0) rotateX(-70deg) skew(0deg, 0deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translate3d(0, 0%, 0) rotateX(-0deg) skew(0deg, 0deg);
+    opacity: 1;
+  }
+}
