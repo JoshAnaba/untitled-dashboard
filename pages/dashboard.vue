@@ -189,6 +189,7 @@ export default {
   layout: 'dashboardLayout',
   data() {
     return {
+      secret_key: '',
       allChecked: false,
       currentPage: 1,
       totalPages: 10,
