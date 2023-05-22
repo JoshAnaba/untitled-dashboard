@@ -2,6 +2,7 @@
   <div class="dashboard-ctn">
     <div class="top">
       {{ secret_key }}
+      yoyo
       <div class="lhs">
         <h1 data-aos-once="true" data-aos="big-anim-2">Welcome back, Olivia</h1>
         <p>Track, manage and forecast your customers and orders.</p>
